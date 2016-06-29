@@ -5,18 +5,33 @@
 	"version": "0.0.3",
 	"permissions": [
 		"activeTab",
-		"https://ajax.googleapis.com/"
+		"https://ajax.googleapis.com/",
+		"tabs",
+		"contextMenus"
 	],
 	"browser_action": {
 		"default_icon": "icon.png"
 	},
 	"icons": { "128": "icon.png"},
+	"background": {
+		"scripts": ["background.js"]
+	},
 	"content_scripts": [
 		{
 		"matches": ["http://*/ControlPanel*", "https://*/ControlPanel*","http://*/WRQualtricsControlPanel*", "https://*/WRQualtricsControlPanel*"],
 		"js": ["resources/jquery-1.11.3.min.js","troubleshooting.js"],
 		"css": ["style.css"],
 		"run_at": "document_end"
-		}
-	]
+		}, 
+		{
+	    "matches": ["http://*.qualtrics.com/WRQualtricsControlPanel/?ClientAction=ChangePage&Section=DistributeSection",
+	 	"https://*.qualtrics.com/WRQualtricsControlPanel/?ClientAction=ChangePage&Section=DistributeSection"],
+	    "js": ["resources/jquery-1.11.3.min.js", "dist_content.js"]
+	  	},
+	  {
+	    "matches": ["http://itwiki.corp.qualtrics.com/*"],
+	    "js": ["resources/jquery-1.11.3.min.js", "sumo_content.js"]	  
+	  }
+	],
+	"web_accessible_resources": ["si_sumo.js"]
 }

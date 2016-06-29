@@ -61,18 +61,21 @@ function addRightClickMenu() {
 		    return false;
 		}, false);
 	}
-	console.log("Adding the right click for distributions");
-	var distributions = document.getElementsByClassName("distribution-details");
-	console.log(distributions);
-	for (var i=0; i<distributions.length; i++) {
-		distributions[i].addEventListener("contextmenu", function(ev) {
-		    ev.preventDefault();
-		    //copySurveyIDtoClipboard(this.id)
-		    alert("DistributionID: " + this.getAttribute("distribution-id"));
-		    console.log(this);
-		    return false;
-		}, false);
-	}
+	//depricated due to use of sumo checker. All features should be at parity. Talk to //
+	//carlm for further details //
+
+	// console.log("Adding the right click for distributions");
+	// var distributions = document.getElementsByClassName("distribution-details");
+	// console.log(distributions);
+	// for (var i=0; i<distributions.length; i++) {
+	// 	distributions[i].addEventListener("contextmenu", function(ev) {
+	// 	    ev.preventDefault();
+	// 	    //copySurveyIDtoClipboard(this.id)
+	// 	    alert("DistributionID: " + this.getAttribute("distribution-id"));
+	// 	    console.log(this);
+	// 	    return false;
+	// 	}, false);
+	// }
 	console.log("Adding the right click for printed reports");
 	var reports = document.getElementsByClassName("ReportRow");
 	console.log(reports);
